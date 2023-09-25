@@ -1,5 +1,8 @@
 package chapterone;
 
+/**
+ * 线程创建方式
+ */
 public class CreateThread {
     public static void main(String[] args) {
         // 方式1
