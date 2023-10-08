@@ -1,7 +1,8 @@
 package chapterone;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 
 import java.util.Date;
 import java.util.concurrent.Callable;
@@ -12,7 +13,7 @@ import java.util.concurrent.FutureTask;
  * 线程创建方式
  */
 public class CreateThread {
-private static  final    Logger logger= LoggerFactory.getLogger(CreateThread.class);
+    private final static Log logger = LogFactory.getLog(CreateThread.class);
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         // 方式1
         Thread thread = new Thread(){
