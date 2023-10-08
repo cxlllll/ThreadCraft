@@ -1,5 +1,8 @@
 package chapterone;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Date;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -9,6 +12,7 @@ import java.util.concurrent.FutureTask;
  * 线程创建方式
  */
 public class CreateThread {
+private static  final    Logger logger= LoggerFactory.getLogger(CreateThread.class);
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         // 方式1
         Thread thread = new Thread(){
@@ -32,7 +36,7 @@ public class CreateThread {
         FutureTask<Integer> futureTask=new FutureTask<>(new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
-                System.out.println("100");
+                logger.info("100");
                 Thread.sleep(5000L);
                 return 100;
             }
@@ -40,7 +44,7 @@ public class CreateThread {
         Thread futureTest = new Thread(futureTask,"futureTest");
         futureTest.start();
         Integer integer = futureTask.get();
-        System.out.println(new Date().toString()+integer);
+        logger.info(String.valueOf(integer));
     }
 
 
