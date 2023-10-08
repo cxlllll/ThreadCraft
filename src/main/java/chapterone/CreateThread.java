@@ -1,10 +1,15 @@
 package chapterone;
 
+import java.util.Date;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
 /**
  * 线程创建方式
  */
 public class CreateThread {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         // 方式1
         Thread thread = new Thread(){
             @Override
@@ -22,5 +27,22 @@ public class CreateThread {
             }
         };
         new Thread(run1,"run2").start();
+
+        //方式3 使用futuretask
+        FutureTask<Integer> futureTask=new FutureTask<>(new Callable<Integer>() {
+            @Override
+            public Integer call() throws Exception {
+                System.out.println("100");
+                Thread.sleep(5000L);
+                return 100;
+            }
+        });
+        Thread futureTest = new Thread(futureTask,"futureTest");
+        futureTest.start();
+        Integer integer = futureTask.get();
+        System.out.println(new Date().toString()+integer);
     }
+
+
+
 }
