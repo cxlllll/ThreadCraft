@@ -1,10 +1,9 @@
 package chapterThree;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Test27 {
-    private  static Log log = LogFactory.getLog(Test27.class);
     public static void main(String[] args) throws InterruptedException {
        Thread t1 = new Thread(){
            @Override

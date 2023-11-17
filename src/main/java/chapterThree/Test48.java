@@ -1,13 +1,13 @@
 package chapterThree;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 泡茶例题
  */
+@Slf4j
 public class Test48 {
-    public static final Log log = LogFactory.getLog(Test48.class);
     public static void main(String[] args) {
         Thread xiaoWang = new Thread(()->{
             try {

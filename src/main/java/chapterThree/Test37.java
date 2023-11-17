@@ -1,13 +1,13 @@
 package chapterThree;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 两阶段停止模式使用----监控类实现
  */
+@Slf4j
 public class Test37 {
-    private  static Log log = LogFactory.getLog(Test37.class);
     Thread monitor;
     public  void start(){
        monitor = new Thread(){

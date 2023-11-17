@@ -1,15 +1,14 @@
 package charterfour;
 
 import chapterThree.Test48;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 测试类锁与对象锁
  * ClassMonitor中的两个方法不互斥 ，谁有可能先执行，一个是对象锁，一个是类锁
  */
+@Slf4j
 public class Test62 {
-    public static final Log log = LogFactory.getLog(Test62.class);
     public static void main(String[] args) {
         ClassMonitor monitor = new ClassMonitor();
         new Thread(()->{
@@ -21,8 +20,9 @@ public class Test62 {
     }
 
 }
+@Slf4j
 class ClassMonitor{
-    public static final Log log = LogFactory.getLog(ClassMonitor.class);
+
     public synchronized void addA(){
         log.info("object");
     }

@@ -1,10 +1,10 @@
 package chapterThree;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Test36 {
-    private  static Log log = LogFactory.getLog(Test36.class);
     public static void main(String[] args) {
         Thread t1= new Thread(){
             @Override

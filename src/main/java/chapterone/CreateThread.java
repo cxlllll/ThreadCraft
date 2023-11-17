@@ -1,8 +1,7 @@
 package chapterone;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
 import java.util.concurrent.Callable;
@@ -12,8 +11,9 @@ import java.util.concurrent.FutureTask;
 /**
  * 线程创建方式
  */
+@Slf4j
 public class CreateThread {
-    private final static Log logger = LogFactory.getLog(CreateThread.class);
+
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         // 方式1
         Thread thread = new Thread(){
@@ -37,7 +37,7 @@ public class CreateThread {
         FutureTask<Integer> futureTask=new FutureTask<>(new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
-                logger.info("100");
+                log.info("100");
                 Thread.sleep(5000L);
                 return 100;
             }
@@ -45,7 +45,7 @@ public class CreateThread {
         Thread futureTest = new Thread(futureTask,"futureTest");
         futureTest.start();
         Integer integer = futureTask.get();
-        logger.info(String.valueOf(integer));
+        log.info(String.valueOf(integer));
     }
 
 

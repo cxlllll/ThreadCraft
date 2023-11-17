@@ -1,13 +1,12 @@
 package chapterThree;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
+
 
 import java.util.concurrent.locks.LockSupport;
-
+@Slf4j
 public class Test41 {
     public static void main(String[] args) throws InterruptedException {
-        final Log log = LogFactory.getLog(Test41.class);
         Thread thread = new Thread(){
             @Override
             public void run() {
